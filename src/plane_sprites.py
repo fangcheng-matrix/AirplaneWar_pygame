@@ -29,7 +29,7 @@ class Background(GameSprite):
 	"""游戏背景精灵"""
 	
 	def __init__(self, is_alt = False):
-		super().__init__("./images/background.png")
+		super().__init__("../images/background.png")
 		if is_alt:
 			self.rect.y = -self.rect.height
 			
@@ -45,7 +45,7 @@ class Enemy(GameSprite):
     def __init__(self):
     
         # 1.创建敌机精灵
-        super().__init__("./images/enemy1.png")
+        super().__init__("../images/enemy1.png")
         
         # 2.指定敌机初始随机速度
         self.speed = random.randint(1, 3)
@@ -75,7 +75,7 @@ class Hero(GameSprite):
     def __init__(self):
     
         # 1.设置英雄image和speed
-        super().__init__("./images/me1.png", 0)
+        super().__init__("../images/me1.png", 0)
         
         # 2.设置英雄初始位置
         self.rect.centerx = SCREEN_RECT.centerx
@@ -116,7 +116,7 @@ class Bullet(GameSprite):
     def __init__(self):
     
         # 1.设置子弹image和speed
-        super().__init__("./images/bullet1.png", -2)
+        super().__init__("../images/bullet1.png", -2)
     
     def update(self):
     
