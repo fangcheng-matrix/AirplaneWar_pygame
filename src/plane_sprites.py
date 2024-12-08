@@ -62,11 +62,12 @@ class Enemy(GameSprite):
         
         # 2.飞出屏幕处理
         if self.rect.y >= SCREEN_RECT.height:
-            print("飞出屏幕 更新精灵列表")
+            print("update sprites-list ...")
             self.kill()
             
     def __del__(self):
-        print("销毁敌机 %s" % self.rect)
+        # print("Delete enemy-plane %s" % self.rect)
+        pass
         
 
 class Hero(GameSprite):
@@ -97,7 +98,7 @@ class Hero(GameSprite):
             
     def fire(self):
         
-        # print("发射子弹。。。")
+        # print("Fire ...")
         for i in (0, 1, 2):
             # 1.创建子弹精灵
             bullet = Bullet()
@@ -129,4 +130,4 @@ class Bullet(GameSprite):
     
     def __del__(self):
         
-        print("子弹被销毁。。。")
+        print("Delete bullet ...")

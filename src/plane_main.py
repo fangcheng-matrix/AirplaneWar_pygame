@@ -5,7 +5,8 @@ class PlaneGame(object):
     """飞机大战主游戏"""
 
     def __init__(self):
-        print("游戏初始化")
+        print("Game initial ...")
+        pygame.init()
         # 1.创建游戏的窗口
         self.screen = pygame.display.set_mode(SCREEN_RECT.size)
         # 2.创建游戏的时钟
@@ -32,14 +33,14 @@ class PlaneGame(object):
 		
     def start_game(self):
     
-        print("游戏开始。。。")
+        print("Game begin ...")
 		
         while True:
         
             # 1.设置刷新帧率
             self.clock.tick(FRAME_PER_SEC)
             # 2.事件监听
-            self.__event_handler()
+            self.__event_handle()
             # 3.碰撞检测
             self.__check_collide()
             # 4.更新精灵组
@@ -47,25 +48,25 @@ class PlaneGame(object):
             # 5.更新显示
             pygame.display.update()
 	
-    def __event_handler(self):
+    def __event_handle(self):
     
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 PlaneGame.__game_over()
             elif event.type == CREATE_ENEMY_EVENT:
-                print("敌机出场。。。")
+                print("Create enemy-plane ...")
                 enemy = Enemy()
                 self.enemy_group.add(enemy)
             elif event.type == HERO_FIRE_EVENT:
                 self.hero.fire()
             # elif event.type == pygame.KEYDOWN and event.type == pygame.K_RIGHT:
-            #     print("向右移动。。。")
+            #     print("Move right ...")
         
         # 使用键盘提供的方法获取键盘动作 ---> 按键元组
-        keys_pressed = pygame.key.get_pressed()
-        if keys_pressed[pygame.K_RIGHT]:
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed[pygame.K_RIGHT]:
             self.hero.speed = 2
-        elif keys_pressed[pygame.K_LEFT]:
+        elif key_pressed[pygame.K_LEFT]:
             self.hero.speed = -2
         else:
             self.hero.speed = 0
@@ -102,7 +103,7 @@ class PlaneGame(object):
     @staticmethod
     def __game_over():
     
-        print("游戏结束")
+        print("Game over")
         pygame.quit()
         exit()
 	
