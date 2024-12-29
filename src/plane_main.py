@@ -26,8 +26,8 @@ class PlaneGame(object):
     def __create_sprites(self):
     
         # 创建背景精灵和精灵组
-        bg1 = Background("./images/background.png")
-        bg2 = Background("./images/background.png", True)
+        bg1 = Background()
+        bg2 = Background(True)
         self.back_group = pygame.sprite.Group(bg1, bg2)
         
         # 创建敌机精灵组
@@ -65,7 +65,7 @@ class PlaneGame(object):
                 self.is_game_pause = not self.is_game_pause
             elif event.type == CREATE_ENEMY_EVENT:
                 # print("Create enemy-plane ...")
-                enemy = Enemy("./images/enemy1.png")
+                enemy = Enemy()
                 self.enemy_group.add(enemy)
             elif event.type == HERO_FIRE_EVENT:
                 self.hero.fire()
@@ -133,7 +133,6 @@ if __name__ == '__main__':
 
     # 创建游戏对象
 	game = PlaneGame()
-	
 	# 启动游戏
 	game.start_game()
 	
